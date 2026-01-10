@@ -278,6 +278,7 @@
                 </div>
             </div>
         </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -308,18 +309,17 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                <form 
+                    action="https://formspree.io/f/mzddpagq" 
+                    method="POST"
+                    class="contact-form"
+>
+                    <input type="text" name="name" required>
+                    <input type="email" name="email" required>
+                    <textarea name="message" required></textarea>
+                    <button type="submit">Send Message</button>
+            </form>
+
             </div>
         </div>
     </section>

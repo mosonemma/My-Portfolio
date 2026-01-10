@@ -1,94 +1,140 @@
-// Smooth scrolling for navigation links
+/* =========================
+   Smooth Scrolling
+========================= */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(anchor.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// Mobile menu toggle
+/* =========================
+   Mobile Menu Toggle + Animation
+========================= */
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-if (hamburger) {
+if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
-        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active'); // triggers animation
     });
 
-    // Close menu when a link is clicked
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.style.display = 'none';
+            navMenu.classList.remove('active');
             hamburger.classList.remove('active');
         });
     });
 }
 
-// Navbar shadow on scroll
+/* Optional Hamburger Cross Animation */
+const style = document.createElement('style');
+style.textContent = `
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+`;
+document.head.appendChild(style);
+
+/* =========================
+   Scroll Effects
+========================= */
 window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 0) {
-        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+
+    if (navbar) {
+        navbar.style.boxShadow = scrollY > 0
+            ? '0 5px 20px rgba(0,0,0,0.1)'
+            : '0 2px 10px rgba(0,0,0,0.1)';
+    }
+
+    let currentSection = '';
+    document.querySelectorAll('section').forEach(section => {
+        if (scrollY >= section.offsetTop - 120) {
+            currentSection = section.id;
+        }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle(
+            'active',
+            link.getAttribute('href').slice(1) === currentSection
+        );
+    });
+
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.backgroundPosition = `center ${scrollY * 0.5}px`;
     }
 });
 
-// Intersection Observer for fade-in animations
+/* =========================
+   Intersection Observer for Fade-In Animations
+========================= */
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const fadeObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
-            observer.unobserve(entry.target);
+            fadeObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe all project cards and skill categories
 document.querySelectorAll('.project-card, .skill-category, .stat').forEach(el => {
     el.style.opacity = '0';
-    observer.observe(el);
+    fadeObserver.observe(el);
 });
 
-// Form submission handling
+/* =========================
+   Contact Form Handling
+========================= */
 const contactForm = document.getElementById('contactForm');
+
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', e => {
         e.preventDefault();
-        
-        // Get form values
-        const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
-        
-        // Validate form
-        if (name && email && message) {
-            // Show success message
-            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            contactForm.reset();
-        } else {
+
+        const name = contactForm.querySelector('input[type="text"]').value.trim();
+        const email = contactForm.querySelector('input[type="email"]').value.trim();
+        const message = contactForm.querySelector('textarea').value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!name || !email || !message) {
             showNotification('Please fill in all fields.', 'error');
+            return;
         }
+
+        if (!emailRegex.test(email)) {
+            showNotification('Please enter a valid email address.', 'error');
+            return;
+        }
+
+        showNotification('Message sent successfully! I will get back to you soon.', 'success');
+        contactForm.reset();
     });
 }
 
-// Notification system
+/* =========================
+   Notification System
+========================= */
 function showNotification(message, type) {
     const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
     notification.textContent = message;
     notification.style.cssText = `
         position: fixed;
@@ -100,185 +146,116 @@ function showNotification(message, type) {
         color: white;
         z-index: 9999;
         animation: slideInRight 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     `;
-    
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.style.animation = 'slideOutRight 0.3s ease';
         setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
 
-// Add CSS for notification animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            opacity: 0;
-            transform: translateX(100px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        to {
-            opacity: 0;
-            transform: translateX(100px);
-        }
-    }
+const notificationStyle = document.createElement('style');
+notificationStyle.textContent = `
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideOutRight {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(100px); }
+}
 `;
-document.head.appendChild(style);
+document.head.appendChild(notificationStyle);
 
-// Counter animation for statistics
+/* =========================
+   Counter Animation
+========================= */
 function animateCounters() {
-    const counters = document.querySelectorAll('.stat h3');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.innerText);
+    document.querySelectorAll('.stat h3').forEach(counter => {
+        const target = parseInt(counter.innerText.replace('+', ''));
         let current = 0;
-        const increment = target / 50;
-        
+        const increment = target / 40;
+
         const updateCount = () => {
             current += increment;
             if (current < target) {
                 counter.innerText = Math.ceil(current) + '+';
-                setTimeout(updateCount, 50);
+                requestAnimationFrame(updateCount);
             } else {
                 counter.innerText = target + '+';
             }
         };
-        
-        const observerOptions = {
-            threshold: 0.5
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    updateCount();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        observer.observe(counter.closest('.stat'));
+
+        const counterObserver = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                updateCount();
+                counterObserver.disconnect();
+            }
+        }, { threshold: 0.5 });
+
+        counterObserver.observe(counter.closest('.stat'));
     });
 }
-
-// Initialize counter animation
 document.addEventListener('DOMContentLoaded', animateCounters);
 
-// Scroll progress indicator
-window.addEventListener('scroll', () => {
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = window.scrollY / docHeight;
-    
-    // You can use this to create a progress bar if needed
-    // Example: document.querySelector('.progress-bar').style.width = scrolled * 100 + '%';
-});
-
-// Add active state to navigation links based on scroll position
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.backgroundPosition = `center ${window.scrollY * 0.5}px`;
-    }
-});
-
-// Add click effect on buttons
+/* =========================
+   Button Ripple Effect
+========================= */
 document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', e => {
         const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
+        const rect = button.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
         ripple.style.cssText = `
             position: absolute;
             width: ${size}px;
             height: ${size}px;
-            background: rgba(255, 255, 255, 0.5);
+            left: ${e.clientX - rect.left - size / 2}px;
+            top: ${e.clientY - rect.top - size / 2}px;
+            background: rgba(255,255,255,0.5);
             border-radius: 50%;
-            left: ${x}px;
-            top: ${y}px;
             pointer-events: none;
             animation: ripple 0.6s ease-out;
         `;
-        
-        if (!document.querySelector('style[data-ripple]')) {
-            const style = document.createElement('style');
-            style.setAttribute('data-ripple', 'true');
-            style.textContent = `
-                @keyframes ripple {
-                    from {
-                        transform: scale(0);
-                        opacity: 1;
-                    }
-                    to {
-                        transform: scale(1);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-        }
-        
-        this.style.position = 'relative';
-        this.style.overflow = 'hidden';
-        this.appendChild(ripple);
+        button.style.position = 'relative';
+        button.style.overflow = 'hidden';
+        button.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
     });
 });
 
-// Page load animation
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+@keyframes ripple {
+    from { transform: scale(0); opacity: 1; }
+    to { transform: scale(1); opacity: 0; }
+}
+`;
+document.head.appendChild(rippleStyle);
+
+/* =========================
+   Page Load Fade In
+========================= */
+document.body.style.opacity = '0';
+document.body.style.transition = 'opacity 0.5s ease';
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
-// Set initial body opacity
-document.body.style.opacity = '0';
-document.body.style.transition = 'opacity 0.5s ease';
-
-// Keyboard accessibility for mobile menu
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const navMenu = document.querySelector('.nav-menu');
-        if (navMenu && navMenu.style.display === 'flex') {
-            navMenu.style.display = 'none';
-            document.querySelector('.hamburger').classList.remove('active');
-        }
+/* =========================
+   Keyboard Accessibility
+========================= */
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navMenu?.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
     }
 });
 
-// Console greeting
-console.log('%cWelcome to My Portfolio! 👋', 'color: #667eea; font-size: 20px; font-weight: bold;');
-console.log('%cFeel free to reach out if you\'d like to collaborate!', 'color: #764ba2; font-size: 14px;');
+/* =========================
+   Console Greeting
+========================= */
+console.log('%cWelcome to My Portfolio! 👋', 'color:#667eea;font-size:20px;font-weight:bold');
+console.log('%cLet’s build something great together 🚀', 'color:#764ba2;font-size:14px');

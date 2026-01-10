@@ -101,20 +101,91 @@ body {
     width: 100%;
 }
 
+/* Hamburger menu for mobile */
 .hamburger {
-    display: none;
+    display: none; /* hidden by default */
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    gap: 5px;
 }
 
 .hamburger span {
     width: 25px;
     height: 3px;
     background: var(--text-dark);
-    margin: 5px 0;
-    transition: 0.3s ease;
     border-radius: 2px;
+    transition: all 0.3s ease;
 }
+
+/* Mobile menu */
+.nav-menu {
+    display: none; /* hide by default */
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 70px; /* height of navbar */
+    right: 0;
+    width: 200px;
+    background: var(--bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.nav-menu.active {
+    display: flex; /* show menu when JS toggles .active */
+}
+
+/* Optional: nav links inside mobile menu */
+.nav-menu li {
+    width: 100%;
+}
+
+.nav-menu li .nav-link {
+    display: block;
+    padding: 10px 0;
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+.nav-menu li .nav-link:hover {
+    color: var(--primary-color);
+}
+
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px; /* height of navbar */
+        right: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--bg-white);
+        padding: 20px;
+        gap: 15px;
+        z-index: 999;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-link {
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
 
 /* Hero Section */
 .hero {
@@ -561,60 +632,110 @@ body {
 
 .social-links {
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;              /* allows wrapping */
+    gap: 10px;                    /* space between links */
+    margin-top: 10px;
 }
 
 .social-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 14px;
+    font-size: 0.9rem;
     text-decoration: none;
-    color: white;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+
+    color: #fff;
+    background: #667eea;
+    border-radius: 20px;
+
+    white-space: nowrap;          /* keeps text in one line */
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .social-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
+    background: #764ba2;
+    transform: translateY(-2px);
 }
 
+
+/* Contact Form */
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.form-group {
+.contact-form .form-group {
     display: flex;
+    flex-direction: column;
 }
 
-.form-group input,
-.form-group textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 14px 20px;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 16px;
+    font-family: inherit;
     background: rgba(255, 255, 255, 0.1);
     color: white;
-    font-family: inherit;
     transition: all 0.3s ease;
+    resize: none;
+    outline: none;
     backdrop-filter: blur(10px);
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
+.contact-form input:focus,
+.contact-form textarea:focus {
     border-color: white;
     background: rgba(255, 255, 255, 0.2);
 }
+
+/* Submit Button */
+.contact-form button {
+    padding: 14px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    align-self: flex-start;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-form button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 
 /* Footer */
 .footer {
