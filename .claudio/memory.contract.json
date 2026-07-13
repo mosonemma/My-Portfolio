@@ -1,0 +1,34 @@
+{
+  "version": "1",
+  "workspaceId": "47ccd92ffdb8e4a4",
+  "workspaceName": "My Portfolio",
+  "enabled": true,
+  "updatedAt": "2026-07-13T11:33:32.844Z",
+  "detectedStack": {
+    "languages": [],
+    "frameworks": [],
+    "uiLibraries": [],
+    "orm": [],
+    "authLibraries": [],
+    "validationLibraries": [],
+    "paymentLibraries": [],
+    "testTools": [],
+    "scripts": {},
+    "importantDirs": [],
+    "sensitiveFiles": []
+  },
+  "sections": {
+    "stack": [],
+    "packageManager": [],
+    "architectureRules": [],
+    "codingConventions": [],
+    "sensitiveFiles": [],
+    "forbiddenActions": [],
+    "allowedCommands": [],
+    "businessRules": [],
+    "integrationRules": [],
+    "testingExpectations": [],
+    "agentInstructions": [],
+    "openQuestions": []
+  }
+}

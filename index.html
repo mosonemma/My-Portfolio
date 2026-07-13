@@ -3,138 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Ssong_Pro</title>
+    <meta name="description" content="Ssong_Pro — portfolio of Moson Emma. Software engineering student, web developer and digital-literacy trainer building practical tools for real people.">
+    <meta name="theme-color" content="#15130F">
+    <title>Moson Emma — Ssong_Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link 
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="Photos/Moson.png">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <main id="main">
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <span class="logo-text">Ssong_Pro</span>
-                <span class="logo-accent">Portfolio</span>
+                <span class="logo-text">moson<span class="dot">.</span>emma<span class="paren">()</span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link">home</a></li>
+                <li><a href="#about" class="nav-link">about</a></li>
+                <li><a href="#projects" class="nav-link">work</a></li>
+                <li><a href="#skills" class="nav-link">skills</a></li>
+                <li><a href="#contact" class="nav-link">contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="word">Creative</span>
-                <span class="word">Developer</span>
-            </h1>
-            <p class="hero-subtitle">Building digital experiences that matter</p>
+        <div class="container hero-content">
+            <p class="hero-path">
+                <span class="segment-user">moson@ssongpro</span><span>:~$</span>
+                <span class="segment-cmd" id="heroTyped">&nbsp;whoami</span><span class="cursor"></span>
+            </p>
+            <h1 class="hero-title">I build reliable web tools — and teach others to build them.</h1>
+            <p class="hero-subtitle">Hi, I’m Emma — a software engineering student and web developer focused on practical, accessible interfaces and tooling that helps communities and small teams ship faster.</p>
+
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">View My Work</button>
-                <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get In Touch</button>
+                <p class="hero-strapline">Systems, mobile experiences, backend services, and training tools.</p>
+                <div>
+                    <button class="btn btn-primary" onclick="window.location.href='projects.html#project-ideas'">Explore 21 ideas</button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Work with me</button>
+                </div>
             </div>
-        </div>
-        <div class="hero-animation">
-            <div class="animated-shape shape-1"></div>
-            <div class="animated-shape shape-2"></div>
-            <div class="animated-shape shape-3"></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- About -->
+    <section id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <div class="section-head reveal">
+                <p class="eyebrow">about</p>
+                <h2 class="section-title">A student who'd rather ship than sit still</h2>
+            </div>
+
             <div class="about-content">
-                <div class="about-photo">
-                    <div class="photo-frame">
-                        <img src="Photos/moson.jpeg" alt="Your Profile Photo" class="profile-photo">
-                    </div>
+                <div class="photo-frame reveal">
+                    <img src="Photos/moson.jpeg" alt="Moson Emma, portrait" class="profile-photo">
                 </div>
-                <div class="about-text">
-                    <p>I'm currently a student at the International University of East Africa (IUEA), studying in the Faculty of Science and Technology. I focus on Object Oriented Prigramming, web development, interactive design, and building practical projects that solve real problems.</p>
-                    <p>Alongside my studies I work on personal and team projects to sharpen my skills in JavaScript, modern frameworks, and UI/UX. I enjoy turning ideas into working products and learning new technologies along the way.</p>
 
-                    <div class="education">
-                        <h4>Education</h4>
+                <div>
+                    <div class="about-text reveal">
+                        <p>I'm currently studying in the <strong>Faculty of Science and Technology</strong> at the International University of East Africa (IUEA), focused on object-oriented programming, web development, and interactive design. Most of what I know, I learned by building something someone actually needed.</p>
+                        <p>Outside of coursework, I do hands-on digital work for <strong>Creation Steppers Youth Development Initiative (CSYDI)</strong> — their website, training curricula, and the campaigns that get young people in the room. I enjoy turning a rough idea into something that ships, then teaching the next person how it works.</p>
+                    </div>
+
+                    <div class="education reveal">
+                        <h4>education</h4>
                         <p><strong>International University of East Africa (IUEA)</strong><br>
-                        Faculty of Science and Technology — Bachelors of Science in Software Engineering (in progress)</p>
+                        Faculty of Science and Technology — B.Sc. Software Engineering, in progress</p>
                     </div>
-                </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <h3>2+</h3>
-                        <p>Current University Experience</p>
+
+                    <div class="git-log reveal">
+                        <p class="git-log-title">git log --oneline --author="Moson Emma"</p>
+                        <div class="commit">
+                            <span class="commit-hash">a1c9f2e</span>
+                            <p class="commit-msg"><span class="tag">feat:</span>Enrolled at IUEA, started building with JavaScript and Python</p>
+                        </div>
+                        <div class="commit">
+                            <span class="commit-hash">7e04b1d</span>
+                            <p class="commit-msg"><span class="tag">feat:</span>Shipped the CSYDI website and its training sign-up flow</p>
+                        </div>
+                        <div class="commit">
+                            <span class="commit-hash">3f88a02</span>
+                            <p class="commit-msg"><span class="tag">docs:</span>Built a 10-week digital literacy curriculum for youth aged 16–26</p>
+                        </div>
+                        <div class="commit">
+                            <span class="commit-hash">HEAD →</span>
+                            <p class="commit-msg"><span class="tag">wip:</span>Learning frameworks and design systems, one project at a time</p>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <h3>2+</h3>
-                        <p>Projects Completed</p>
-                    </div>
-                    <div class="stat">
-                        <h3>5+</h3>
-                        <p>Happy Clients</p>
+
+                    <div class="about-stats reveal">
+                        <div class="stat"><h3>2+</h3><p>years in the field</p></div>
+                        <div class="stat"><h3>2+</h3><p>projects shipped</p></div>
+                        <div class="stat"><h3>5+</h3><p>happy clients</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Software engineering overview -->
+    <section id="engineering">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-head reveal">
+                <p class="eyebrow">software engineering</p>
+                <h2 class="section-title">I design systems, apps, and workflows — not just websites.</h2>
+                <p class="section-note">From back-end APIs and mobile experiences to CI/CD pipelines and learning tools, I help teams ship software that is reliable, maintainable, and user-focused.</p>
+            </div>
+
+            <div class="engineering-grid reveal">
+                <article class="feature-card">
+                    <h3>Application architecture</h3>
+                    <p>Design modular systems with clear separation of concerns, scalable backend services, and maintainable front-end layers.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>API &amp; data services</h3>
+                    <p>Build RESTful and GraphQL APIs, manage data modeling, and integrate secure service-to-service communication.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Mobile &amp; cross-platform</h3>
+                    <p>Develop mobile-ready experiences with responsive design, React Native / Flutter, and native-like performance.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>DevOps &amp; automation</h3>
+                    <p>Automate builds, testing and deployment with CI/CD pipelines, infrastructure as code, and quality tooling.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Quality &amp; reliability</h3>
+                    <p>Focus on testing, observability, security, and performance so software works well under real-world conditions.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Documentation &amp; training</h3>
+                    <p>Create clear docs, onboarding materials, and learning content that help teams and communities use technology with confidence.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">selected work</p>
+                <h2 class="section-title">Things I've shipped</h2>
+                <p class="section-note">A mix of client work and personal builds. <a href="projects.html" style="color:var(--gold);text-decoration:underline;">See the full list →</a></p>
+            </div>
+
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                    </div>
+                <article class="project-card reveal">
+                    <div class="project-image" style="background: var(--gold);"></div>
                     <div class="project-info">
-                        <h3>An Organization Website</h3>
-                        <p>This Project involved designing and developing a complete website for an Organization - a clean, modern, Responsive platform to showcase their mission, activities, and impact. The site aims to make it easy for visitors, stakeholders and community members to understand what the Organization does, and connect with them</p>
+                        <p class="project-meta">client work</p>
+                        <h3>CSYDI Organization Website</h3>
+                        <p>A complete, responsive website for Creation Steppers Youth Development Initiative — built to showcase their mission and make it easy for the community to connect and sign up for programs.</p>
                         <div class="project-tags">
                             <span class="tag">HTML5</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
-                            <span class="tag">Responsive Design</span>
-                            <span class="tag">Git for version control</span>
+                            <span class="tag">Responsive</span>
+                            <span class="tag">Git</span>
                         </div>
-                        <a href="https://creation-steppers.netlify.app/" class="project-link">CSYDI Project →</a>
+                        <a href="https://creation-steppers.netlify.app/" target="_blank" rel="noopener" class="project-link">Visit live site →</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                    </div>
+                <article class="project-card reveal">
+                    <div class="project-image" style="background: var(--teal);"></div>
                     <div class="project-info">
+                        <p class="project-meta">personal build</p>
                         <h3>E-Commerce Platform</h3>
-                        <p>A fully functional online store with payment integration and inventory management system.</p>
+                        <p>A fully functional online store with payment integration and an inventory management system.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
                             <span class="tag">MongoDB</span>
                         </div>
-                        <a href="#" class="project-link">View Project →</a>
+                        <a href="#" class="project-link">View project →</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                    </div>
+                <article class="project-card reveal">
+                    <div class="project-image" style="background: #C1633B;"></div>
                     <div class="project-info">
+                        <p class="project-meta">personal build</p>
                         <h3>Task Management App</h3>
                         <p>A collaborative task management tool with real-time updates and team collaboration features.</p>
                         <div class="project-tags">
@@ -142,190 +202,129 @@
                             <span class="tag">Firebase</span>
                             <span class="tag">Tailwind</span>
                         </div>
-                        <a href="#" class="project-link">View Project →</a>
+                        <a href="#" class="project-link">View project →</a>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Weather Dashboard</h3>
-                        <p>Real-time weather application with interactive maps and detailed weather forecasting.</p>
-                        <div class="project-tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">API</span>
-                            <span class="tag">Charts</span>
-                        </div>
-                        <a href="#" class="project-link">View Project →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Social Media Analytics</h3>
-                        <p>A comprehensive analytics dashboard for tracking social media performance and insights.</p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Charts.js</span>
-                            <span class="tag">API</span>
-                        </div>
-                        <a href="#" class="project-link">View Project →</a>
-                    </div>
-                </div>
+                </article>
             </div>
+            <p class="section-note">I moved the full list of 21 project ideas to the projects page to keep the homepage concise. See the complete list on the <a href="projects.html#project-ideas" style="color:var(--gold);text-decoration:underline;">Projects page →</a></p>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- Skills -->
+    <section id="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="section-head reveal">
+                <p class="eyebrow">stack</p>
+                <h2 class="section-title">Skills &amp; expertise</h2>
+            </div>
+
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span>HTML5</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>CSS3</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>JavaScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>React</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-category reveal">
+                    <h3>frontend/</h3>
+                    <div class="skill-item"><span>HTML5</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                    </div></div>
+                    <div class="skill-item"><span>CSS3</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                    </div></div>
+                    <div class="skill-item"><span>JavaScript</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                    </div></div>
+                    <div class="skill-item"><span>React</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+                    </div></div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span>Node.js</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>MongoDB</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 83%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>SQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 87%"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-category reveal">
+                    <h3>backend/</h3>
+                    <div class="skill-item"><span>Node.js</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+                    </div></div>
+                    <div class="skill-item"><span>Python</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+                    </div></div>
+                    <div class="skill-item"><span>MongoDB</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+                    </div></div>
+                    <div class="skill-item"><span>SQL</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                    </div></div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Design & Tools</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span>Figma</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Git</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Responsive Design</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 93%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>UI/UX</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-category reveal">
+                    <h3>design &amp; tools/</h3>
+                    <div class="skill-item"><span>Figma</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+                    </div></div>
+                    <div class="skill-item"><span>Git</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                    </div></div>
+                    <div class="skill-item"><span>Responsive design</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                    </div></div>
+                    <div class="skill-item"><span>UI/UX</span><div class="skill-dots">
+                        <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+                    </div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Contact -->
+    <section id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-head reveal">
+                <p class="eyebrow">get in touch</p>
+                <h2 class="section-title">Let's build something</h2>
+            </div>
+
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info reveal">
                     <div class="info-item">
-                        <h3>Email</h3>
+                        <h3>email</h3>
                         <a href="mailto:mosonemma2001@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Emma,%0AI'm%20interested%20in%20your%20work.">mosonemma2001@gmail.com</a>
                     </div>
                     <div class="info-item">
-                        <h3>Location</h3>
+                        <h3>location</h3>
                         <p>Kampala, Uganda</p>
                     </div>
                     <div class="info-item">
-                        <h3>Social</h3>
+                        <h3>elsewhere</h3>
                         <div class="social-links">
-                            <a href="https://wa.me/256778632598" class="social-link">Whatsapp</a>
-                            <a href="tel:+256762326691" class="social-link">Call Me</a>
-                            <a href="https://linkedin.com/in/moson-emma-877965336" class="social-link">LinkedIn</a>
-                            <a href="https://github.com/mosonemma" class="social-link">GitHub</a>
-                            <a href="https://twitter.com/@Ssong_Pro0" class="social-link">Twitter(X)</a>
-                            <a href="https://x.com/Ssong_Pro0" class="social-link">Facebook Page</a>
-                            <a href="https://www.instagram.com/ssong.official" class="social-link">Instagram</a>
-                            <a href="https://www.tiktok.com/@ssongpro0" class="social-link">Tiktok</a>
+                            <a href="https://wa.me/256778632598" class="social-link" target="_blank" rel="noopener">WhatsApp</a>
+                            <a href="tel:+256762326691" class="social-link">Call me</a>
+                            <a href="https://linkedin.com/in/moson-emma-877965336" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+                            <a href="https://github.com/mosonemma" class="social-link" target="_blank" rel="noopener">GitHub</a>
+                            <a href="https://x.com/Ssong_Pro0" class="social-link" target="_blank" rel="noopener">X / Twitter</a>
+                            <a href="https://www.instagram.com/ssong.official" class="social-link" target="_blank" rel="noopener">Instagram</a>
+                            <a href="https://www.tiktok.com/@ssongpro0" class="social-link" target="_blank" rel="noopener">TikTok</a>
                         </div>
                     </div>
                 </div>
 
-                <form 
-                    action="https://formspree.io/f/mzddpagq" 
-                    method="POST"
-                    class="contact-form"
->
-                    <input type="text" name="name" required>
-                    <input type="email" name="email" required>
-                    <textarea name="message" required></textarea>
-                    <button type="submit">Send Message</button>
-            </form>
-
+                <form action="https://formspree.io/f/mzddpagq" method="POST" class="contact-form" id="contactForm" novalidate>
+                    <div>
+                        <label for="name">name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name" aria-label="Name">
+                    </div>
+                    <div>
+                        <label for="email">email</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com" aria-label="Email">
+                    </div>
+                    <div>
+                        <label for="message">message</label>
+                        <textarea id="message" name="message" required placeholder="What are you building?" aria-label="Message"></textarea>
+                    </div>
+                    <button type="submit">Send message</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    </main>
+
     <footer class="footer">
-        <p>&copy; 2025 Ssong_Pro Portfolio. All rights reserved.</p>
+        <p>© 2026 Moson Emma (Ssong_Pro). Built with HTML, CSS &amp; JS.</p>
     </footer>
 
     <script src="script.js"></script>

@@ -3,116 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Projects | Portfolio</title>
+    <meta name="description" content="All projects by Moson Emma (Ssong_Pro) — web development, design and digital tools.">
+    <meta name="theme-color" content="#15130F">
+    <title>All Projects — Moson Emma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Photos/Moson.png">
 </head>
 <body>
-    <!-- Navigation -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <span class="logo-text">Ssong_Pro</span>
-                <span class="logo-accent">Portfolio</span>
+                <span class="logo-text">moson<span class="dot">.</span>emma<span class="paren">()</span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html#home" class="nav-link">Home</a></li>
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="projects.html" class="nav-link active">All Projects</a></li>
-                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html#home" class="nav-link">home</a></li>
+                <li><a href="index.html#about" class="nav-link">about</a></li>
+                <li><a href="projects.html" class="nav-link active">work</a></li>
+                <li><a href="index.html#skills" class="nav-link">skills</a></li>
+                <li><a href="index.html#contact" class="nav-link">contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <section class="projects" style="padding-top:120px;">
+    <main id="main">
+    <section style="padding-top: 140px;">
         <div class="container">
-            <h2 class="section-title">All Projects</h2>
-            <p style="text-align:center; color:var(--text-light); margin-bottom:30px;">A selection of projects I've worked on — click a project to view more details.</p>
+            <div class="section-head reveal">
+                <p class="eyebrow">archive</p>
+                <h2 class="section-title">All projects</h2>
+                <p class="section-note">Everything I've worked on, client and personal. Click through for details.</p>
+            </div>
+
+            <!-- Project ideas (moved from homepage) -->
+            <div id="project-ideas" class="section-head reveal" style="margin-top:24px;" role="region" aria-labelledby="ideas-title">
+                <p class="eyebrow">project ideas</p>
+                <h3 id="ideas-title" class="section-title" style="font-size:1.2rem;">Web development ideas to build</h3>
+                <p class="section-note">Practical concepts pulled together for inspiration — starter ideas and tech hints.</p>
+            </div>
+
+            <div class="ideas-controls" aria-hidden="false">
+                <label for="idea-search" class="sr-only">Search ideas</label>
+                <input id="idea-search" type="search" placeholder="Search ideas (title, tags)" aria-label="Search project ideas">
+
+                <div class="tag-filters" role="toolbar" aria-label="Filter by tech stack">
+                    <button class="filter-btn" data-tag="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-tag="HTML">HTML</button>
+                    <button class="filter-btn" data-tag="CSS">CSS</button>
+                    <button class="filter-btn" data-tag="JS">JS</button>
+                    <button class="filter-btn" data-tag="React">React</button>
+                    <button class="filter-btn" data-tag="MERN">MERN</button>
+                    <button class="filter-btn" data-tag="API">API</button>
+                </div>
+                <div style="margin-left:auto;">
+                    <button id="show-more" class="btn btn-secondary">Show more</button>
+                </div>
+            </div>
+
+            <div class="ideas-grid" style="margin-bottom:28px;">
+                <article class="idea-card reveal" data-difficulty="beginner" data-hours="6">
+                    <div class="idea-meta">
+                        <h3>Personal Portfolio Website</h3>
+                        <span class="idea-badges"><span class="badge level">Beginner</span><span class="badge hours">~6h</span></span>
+                    </div>
+                    <p>Create a responsive portfolio to showcase skills, projects, education and contact information.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JS</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="beginner" data-hours="4">
+                    <div class="idea-meta">
+                        <h3>To-Do List App</h3>
+                        <span class="idea-badges"><span class="badge level">Beginner</span><span class="badge hours">~4h</span></span>
+                    </div>
+                    <p>A simple to-do app to add, edit, delete and mark tasks complete with local storage.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JS</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="beginner" data-hours="5">
+                    <div class="idea-meta">
+                        <h3>Weather App</h3>
+                        <span class="idea-badges"><span class="badge level">Beginner</span><span class="badge hours">~5h</span></span>
+                    </div>
+                    <p>Show real-time weather information for any city using a weather API and friendly UI.</p>
+                    <div class="project-tags">
+                        <span class="tag">API</span>
+                        <span class="tag">Fetch</span>
+                        <span class="tag">UI</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>E-commerce Website</h3>
+                    <p>Build a complete online store with product listing, cart, checkout and order management.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Payments</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Real-time Chat Application</h3>
+                    <p>Build a chat app with private rooms and messaging using WebSocket or Socket.io.</p>
+                    <div class="project-tags">
+                        <span class="tag">Socket.io</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Realtime</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Video Streaming App</h3>
+                    <p>Develop a video platform with uploads, playlists and user authentication.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Cloud</span>
+                        <span class="tag">Auth</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Blog Website</h3>
+                    <p>Develop a blogging platform with create, read, update, delete (CRUD), categories and comments.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Markdown</span>
+                        <span class="tag">SEO</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Social Media Dashboard</h3>
+                    <p>Create a dashboard to analyze social media stats like followers, likes and engagement.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Charts</span>
+                        <span class="tag">API</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Event Management System</h3>
+                    <p>Manage events, users, bookings, schedules and send email reminders for attendees.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Payments</span>
+                        <span class="tag">Email</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Expense Tracker</h3>
+                    <p>Track income and expenses with charts and reports to manage personal finances efficiently.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Chart.js</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Food Ordering Website</h3>
+                    <p>Build a restaurant ordering system with menu, cart, payment and order tracking.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Payments</span>
+                        <span class="tag">Orders</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Notes App</h3>
+                    <p>Create a notes app to add, edit, delete and search notes with categories and syncing.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Sync</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Image Gallery</h3>
+                    <p>Create an image gallery with upload, delete, categories and a responsive lightbox.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Cloud</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Online Survey Form</h3>
+                    <p>Create a survey form builder to collect responses and view results in charts.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Charts</span>
+                        <span class="tag">Forms</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Gym Website</h3>
+                    <p>Build a gym site with trainer profiles, membership plans, schedules and contact forms.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Forms</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Online Learning Platform</h3>
+                    <p>Build a platform for courses, lessons, quizzes and progress tracking for students.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Auth</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Job Portal Website</h3>
+                    <p>Build a job portal for seekers and employers to post, search and apply for jobs.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Search</span>
+                        <span class="tag">Auth</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Real Estate Website</h3>
+                    <p>List properties for sale/rent with search, filters and detailed property pages.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Maps</span>
+                        <span class="tag">Search</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Password Manager</h3>
+                    <p>Develop a secure app to store and manage passwords with encryption and backups.</p>
+                    <div class="project-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">Encryption</span>
+                        <span class="tag">Auth</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Recipe Finder App</h3>
+                    <p>Search recipes, view ingredients and cooking steps, and filter by category.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">API</span>
+                        <span class="tag">Filters</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal">
+                    <h3>Travel Website</h3>
+                    <p>Create a travel site to explore places, hotels, packages and booking options.</p>
+                    <div class="project-tags">
+                        <span class="tag">MERN</span>
+                        <span class="tag">Maps</span>
+                        <span class="tag">Bookings</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="40">
+                    <div class="idea-meta">
+                        <h3>Mobile App (Cross-platform)</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~40h</span></span>
+                    </div>
+                    <p>Build a cross-platform mobile app (React Native / Flutter) with local storage, push notifications and basic offline support.</p>
+                    <div class="project-tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Mobile</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="24">
+                    <div class="idea-meta">
+                        <h3>Backend API Service</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~24h</span></span>
+                    </div>
+                    <p>Design and implement a RESTful or GraphQL API with authentication, versioning, and documentation (OpenAPI).</p>
+                    <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">API</span>
+                        <span class="tag">OpenAPI</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="12">
+                    <div class="idea-meta">
+                        <h3>Authentication / SSO</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~12h</span></span>
+                    </div>
+                    <p>Implement secure authentication with JWT / OAuth2, account management, and optional SSO integration.</p>
+                    <div class="project-tags">
+                        <span class="tag">Auth</span>
+                        <span class="tag">OAuth2</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="10">
+                    <div class="idea-meta">
+                        <h3>CI / CD Pipeline</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~10h</span></span>
+                    </div>
+                    <p>Set up automated builds, tests, and deployment using GitHub Actions / GitLab CI. Include linting and security checks.</p>
+                    <div class="project-tags">
+                        <span class="tag">CI</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="16">
+                    <div class="idea-meta">
+                        <h3>Infrastructure as Code</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~16h</span></span>
+                    </div>
+                    <p>Define cloud infrastructure with Terraform or Pulumi, including networking, storage, and managed services.</p>
+                    <div class="project-tags">
+                        <span class="tag">Terraform</span>
+                        <span class="tag">Cloud</span>
+                        <span class="tag">IaC</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="12">
+                    <div class="idea-meta">
+                        <h3>Observability &amp; Monitoring</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~12h</span></span>
+                    </div>
+                    <p>Build dashboards and alerts (Prometheus, Grafana) for service metrics, logs, and uptime monitoring.</p>
+                    <div class="project-tags">
+                        <span class="tag">Monitoring</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Grafana</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="12">
+                    <div class="idea-meta">
+                        <h3>Automated Test Suite</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~12h</span></span>
+                    </div>
+                    <p>Write unit, integration, and end-to-end tests; wire them into CI and aim for reliable, fast feedback loops.</p>
+                    <div class="project-tags">
+                        <span class="tag">Testing</span>
+                        <span class="tag">Jest</span>
+                        <span class="tag">Cypress</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="advanced" data-hours="20">
+                    <div class="idea-meta">
+                        <h3>Performance &amp; Load Testing</h3>
+                        <span class="idea-badges"><span class="badge level">Advanced</span><span class="badge hours">~20h</span></span>
+                    </div>
+                    <p>Run benchmark and load tests, identify bottlenecks, and add caching or scaling strategies to improve latency and throughput.</p>
+                    <div class="project-tags">
+                        <span class="tag">Load</span>
+                        <span class="tag">k6</span>
+                        <span class="tag">Performance</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="advanced" data-hours="14">
+                    <div class="idea-meta">
+                        <h3>Security Audit &amp; Hardening</h3>
+                        <span class="idea-badges"><span class="badge level">Advanced</span><span class="badge hours">~14h</span></span>
+                    </div>
+                    <p>Perform dependency scans, penetration checks, and implement best-practice hardening (CSP, secure headers, secrets management).</p>
+                    <div class="project-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">SAST</span>
+                        <span class="tag">CSP</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="10">
+                    <div class="idea-meta">
+                        <h3>Database Migration System</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~10h</span></span>
+                    </div>
+                    <p>Implement repeatable database migrations and rollbacks (Flyway / Liquibase / Knex) with CI integration.</p>
+                    <div class="project-tags">
+                        <span class="tag">DB</span>
+                        <span class="tag">Migrations</span>
+                        <span class="tag">CI</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="8">
+                    <div class="idea-meta">
+                        <h3>Developer Docs &amp; Portal</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~8h</span></span>
+                    </div>
+                    <p>Build a documentation site with API docs, setup guides, and onboarding steps for new developers (Docusaurus / MkDocs).</p>
+                    <div class="project-tags">
+                        <span class="tag">Docs</span>
+                        <span class="tag">Docusaurus</span>
+                        <span class="tag">Onboarding</span>
+                    </div>
+                </article>
+
+                <article class="idea-card reveal" data-difficulty="intermediate" data-hours="10">
+                    <div class="idea-meta">
+                        <h3>Developer Tools &amp; CLI</h3>
+                        <span class="idea-badges"><span class="badge level">Intermediate</span><span class="badge hours">~10h</span></span>
+                    </div>
+                    <p>Create CLI tools or developer SDKs to automate repetitive workflows and improve developer productivity.</p>
+                    <div class="project-tags">
+                        <span class="tag">CLI</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                </article>
+            </div>
 
             <div class="projects-grid">
-                <!-- Project 1 -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                    </div>
+                <article class="project-card reveal">
+                    <div class="project-image" style="background: var(--gold);"></div>
                     <div class="project-info">
+                        <p class="project-meta">client work</p>
+                        <h3>CSYDI Organization Website</h3>
+                        <p>A complete, responsive website for Creation Steppers Youth Development Initiative, built to showcase their mission and connect them with their community.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a href="https://creation-steppers.netlify.app/" target="_blank" rel="noopener" class="project-link">Visit live site →</a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-image" style="background: var(--teal);"></div>
+                    <div class="project-info">
+                        <p class="project-meta">personal build</p>
                         <h3>E-Commerce Platform</h3>
-                        <p>A full-stack e-commerce platform with product catalog, shopping cart, and payment integration. Built with React, Node.js and MongoDB.</p>
+                        <p>A full-stack e-commerce platform with a product catalog, shopping cart, and payment integration.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
                             <span class="tag">MongoDB</span>
                         </div>
-                        <a href="#" class="project-link">Case Study →</a>
+                        <a href="#" class="project-link">Case study →</a>
                     </div>
                 </article>
 
-                <!-- Project 2 -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                    </div>
+                <article class="project-card reveal">
+                    <div class="project-image" style="background: #C1633B;"></div>
                     <div class="project-info">
+                        <p class="project-meta">personal build</p>
                         <h3>Task Management App</h3>
-                        <p>A collaborative task manager with real-time updates and team features. Implemented with Vue.js and Firebase.</p>
+                        <p>A collaborative task manager with real-time updates and team features, built with Vue.js and Firebase.</p>
                         <div class="project-tags">
                             <span class="tag">Vue.js</span>
                             <span class="tag">Firebase</span>
                             <span class="tag">Realtime</span>
                         </div>
-                        <a href="#" class="project-link">Case Study →</a>
+                        <a href="#" class="project-link">Case study →</a>
                     </div>
                 </article>
 
-                <!-- Project 3 -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                    </div>
+                <article class="project-card reveal">
+                    <div class="project-image" style="background: var(--gold);"></div>
                     <div class="project-info">
+                        <p class="project-meta">personal build</p>
                         <h3>Weather Dashboard</h3>
-                        <p>Interactive weather dashboard with API integrations and charting for forecasts and historical data.</p>
+                        <p>An interactive weather dashboard with API integrations and charting for forecasts and historical data.</p>
                         <div class="project-tags">
                             <span class="tag">JavaScript</span>
                             <span class="tag">API</span>
                             <span class="tag">Charts</span>
                         </div>
-                        <a href="#" class="project-link">Case Study →</a>
+                        <a href="#" class="project-link">Case study →</a>
                     </div>
                 </article>
 
-                <!-- Project 4 -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
-                    </div>
+                <article class="project-card reveal">
+                    <div class="project-image" style="background: var(--teal);"></div>
                     <div class="project-info">
+                        <p class="project-meta">personal build</p>
                         <h3>Social Media Analytics</h3>
-                        <p>Analytics dashboard for tracking engagement, growth, and campaign performance with visualizations.</p>
+                        <p>An analytics dashboard for tracking engagement, growth, and campaign performance with visualizations.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
-                            <span class="tag">Charts.js</span>
+                            <span class="tag">Chart.js</span>
                             <span class="tag">API</span>
                         </div>
-                        <a href="#" class="project-link">Case Study →</a>
+                        <a href="#" class="project-link">Case study →</a>
                     </div>
                 </article>
-
             </div>
 
-            <div style="text-align:center; margin-top:40px;">
-                <a href="index.html#projects" class="btn btn-secondary">Back to Overview</a>
+            <div style="text-align:center; margin-top:56px;">
+                <a href="index.html#projects" class="btn btn-secondary">Back to overview</a>
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Your Portfolio. All rights reserved.</p>
+        <p>© 2026 Moson Emma (Ssong_Pro). Built with HTML, CSS &amp; JS.</p>
     </footer>
 
     <script src="script.js"></script>
